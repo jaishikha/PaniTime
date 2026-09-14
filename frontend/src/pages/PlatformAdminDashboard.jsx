@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import API_URL from "../api";
 
 function PlatformAdminDashboard() {
   const [admins, setAdmins] = useState([]);
@@ -26,7 +27,7 @@ function PlatformAdminDashboard() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/admin-management/admins",
+        `${API_URL}/api/admin-management/admins`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -53,7 +54,7 @@ function PlatformAdminDashboard() {
   const fetchCities = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/cities"
+        `${API_URL}/api/cities`
       );
 
       const data = await response.json();
@@ -93,7 +94,7 @@ function PlatformAdminDashboard() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/admin-management/admins",
+        `${API_URL}/api/admin-management/admins`,
         {
           method: "POST",
           headers: {
@@ -141,7 +142,7 @@ function PlatformAdminDashboard() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/cities",
+        `${API_URL}/api/cities`,
         {
           method: "POST",
           headers: {
@@ -191,7 +192,7 @@ function PlatformAdminDashboard() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:5000/api/admin-management/admins/${adminId}/deactivate`,
+        `${API_URL}/api/admin-management/admins/${adminId}/deactivate`,
         {
           method: "PATCH",
           headers: {

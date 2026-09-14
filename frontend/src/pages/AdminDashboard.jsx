@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import API_URL from "../api";
 
 function AdminDashboard() {
   const today = new Date().toISOString().split("T")[0];
@@ -23,7 +24,7 @@ function AdminDashboard() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/water-status",
+        `${API_URL}/api/water-status`,
         {
           method: "POST",
           headers: {

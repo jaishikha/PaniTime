@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import API_URL from "../api";
 
 function WaterStatus() {
   const [searchArea, setSearchArea] = useState("");
@@ -21,7 +22,7 @@ function WaterStatus() {
         const token = localStorage.getItem("token");
 
         const response = await fetch(
-          "http://localhost:5000/api/auth/followed-localities",
+          `${API_URL}/api/auth/followed-localities`,
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -60,7 +61,7 @@ function WaterStatus() {
       const token = localStorage.getItem("token");
       
       const response = await fetch(
-        `http://localhost:5000/api/water-status?area=${encodeURIComponent(
+        `${API_URL}/api/water-status?area=${encodeURIComponent(
           searchArea
         )}`,
         {
@@ -110,7 +111,7 @@ function WaterStatus() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/follow-locality",
+        `${API_URL}/api/auth/follow-locality`,
         {
           method: "POST",
           headers: {
@@ -150,7 +151,7 @@ function WaterStatus() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/unfollow-locality",
+        `${API_URL}/api/auth/unfollow-locality`,
         {
           method: "POST",
           headers: {

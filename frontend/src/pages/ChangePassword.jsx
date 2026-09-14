@@ -1,4 +1,5 @@
 import { useState } from "react";
+import API_URL from "../api";
 
 function ChangePassword() {
   const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ function ChangePassword() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/auth/change-password",
+        `${API_URL}/api/auth/change-password`,
         {
           method: "PATCH",
           headers: {

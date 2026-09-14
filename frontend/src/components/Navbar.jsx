@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import API_URL from "../api";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ function Navbar() {
 
       try {
         const response = await fetch(
-          "http://localhost:5000/api/notifications",
+          `${API_URL}/api/notifications`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`

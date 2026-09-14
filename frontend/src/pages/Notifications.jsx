@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import API_URL from "../api";
 
 function Notifications() {
   const [notifications, setNotifications] = useState([]);
@@ -15,7 +16,7 @@ function Notifications() {
 
       try {
         const response = await fetch(
-          "http://localhost:5000/api/notifications",
+          `${API_URL}/api/notifications`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -41,7 +42,7 @@ function Notifications() {
   const markAsRead = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/notifications/${id}/read`,
+        `${API_URL}/api/notifications/${id}/read`,
         {
           method: "PATCH",
             headers: {

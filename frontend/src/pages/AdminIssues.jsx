@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import API_URL from "../api";
 
 function AdminIssues() {
   const [issues, setIssues] = useState([]);
@@ -7,7 +8,7 @@ function AdminIssues() {
   const fetchIssues = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/issues",
+        `${API_URL}/api/issues`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -32,7 +33,7 @@ function AdminIssues() {
   const handleResolve = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/issues/${id}`,
+        `${API_URL}/api/issues/${id}`,
         {
           method: "PATCH",
           headers: {

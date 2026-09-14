@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import API_URL from "../api";
 
 function Register() {
   const [name, setName] = useState("");
@@ -14,7 +15,7 @@ function Register() {
     const fetchCities = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/cities"
+          `${API_URL}/api/cities`
         );
 
         const data = await response.json();
@@ -35,7 +36,7 @@ function Register() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/register",
+        `${API_URL}/api/auth/register`,
         {
           method: "POST",
           headers: {
